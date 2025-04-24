@@ -117,3 +117,91 @@ foreign key(attributeCategoryId) references attribute_category(attributeCategory
 
 );
 
+INSERT INTO color (name, hex_value, created_at) 
+VALUES
+('Red', '#FF0000', NOW()),
+('Blue', '#0000FF', NOW()),
+('Black', '#000000', NOW());
+
+INSERT INTO product_category (name, description, created_at)
+VALUES
+('Footwear', 'All kinds of shoes, sandals, and boots', NOW()),
+('Clothing', 'Men and Women clothing items', NOW()),
+('Electronics', 'Gadgets, phones, and accessories', NOW()),
+('Accessories', 'Belts, watches, hats, and more', NOW());
+
+INSERT INTO brand (name, created_at)
+VALUES
+('Nike', NOW()),
+('Adidas', NOW()),
+('Apple', NOW()),
+('Samsung', NOW()),
+('Zara', NOW()),
+('H&M', NOW());
+
+INSERT INTO attribute_category (name, description, created_at)
+VALUES
+('Physical', 'Attributes related to the physical characteristics of the product', NOW()),
+('Technical', 'Attributes describing technical specs', NOW()),
+('Descriptive', 'General descriptive attributes like style or theme', NOW());
+
+
+INSERT INTO size_category (name, description, created_at)
+VALUES
+('Clothing Sizes', 'Sizes used for shirts, pants, dresses, etc.', NOW()),
+('Shoe Sizes', 'Sizes used for footwear', NOW()),
+('Ring Sizes', 'Standard sizes for rings', NOW());
+
+INSERT INTO product (name, description, brand_id, productCategoryId, base_price, created_at, updated_at)
+VALUES
+('Sneakers',"Comfortable sneakers", 1, 1, 89.99, NOW(), now()),
+('Heels',"Stylish high-heeled shoes", 1, 1, 79.99, NOW(), now());
+
+insert into product_image(image_url, alt_text, product_id, created_at)
+values
+("https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "a photo of sneakers", 1,  now()),
+("https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "a photo of heels", 2, now());
+
+INSERT INTO product_attribute (product_id, name,  value, created_at)
+VALUES
+(1, 'Material',  'Leather', NOW()), 
+(1, 'Weight',  '0.8', NOW()),      
+(1, 'Color',  'Red', NOW()),         
+(2, 'Material', 'Suede', NOW()),  
+(2, 'Weight', '0.6', NOW()),       
+(2, 'Color', 'Black', NOW());     
+
+INSERT INTO product_item (product_id, stock_keeping, price, stock_quantity, created_at, updated_at)
+VALUES
+(1, 'SKU-SNEAKERS-M-RED', 89.99, 50, now(), now()),
+(1, 'SKU-SNEAKERS-L-RED', 89.99, 30, now(), now()),
+(1, 'SKU-SNEAKERS-M-BLUE', 89.99, 40, now(), now()),
+(2, 'SKU-HEELS-7-BLACK', 79.99, 20, now(),now()),
+(2, 'SKU-HEELS-8-BLACK', 79.99, 25, now(), now());
+
+INSERT INTO size_option (size_value, sizeCategoryId, created_at)
+VALUES 
+('6', 2, now()),
+('7', 2, now()),
+('8', 2, now()),
+('9', 2, now()),
+('10', 2, now());
+
+
+INSERT INTO attribute_type (attributeCategoryId, name, description)
+VALUES 
+(1, 'Text', 'Used for textual attributes like material or color'),
+(1, 'Number', 'Used for numeric values like weight or size'),
+(1, 'Boolean', 'True or false values such as waterproof'),
+
+(2, 'Text', 'Technical textual attributes like processor or brand'),
+(2, 'Number', 'Numeric technical specs like RAM or storage'),
+(2, 'Boolean', 'Yes/No technical capabilities like Bluetooth');
+    
+
+INSERT INTO product_variation (item_id, color_id, option_id)
+VALUES 
+(1, 1, 1),  -- item 1, red, size M
+(1, 1, 2),  -- item 1, red, size L
+(2, 2, 1),  -- item 2, blue, size M
+(2, 2, 2);  -- item 2, blue, size L

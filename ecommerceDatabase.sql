@@ -1,5 +1,5 @@
--- create database e_commerce;
--- use e_commerce;
+create database e_commerce;
+use e_commerce;
 
 create table product (
 product_id int primary key auto_increment,
@@ -25,19 +25,19 @@ foreign key(productCategoryId) references product_category(productCategoryId)
 foreign key(product_id) references product(product_id)
  );
 
--- create table color(
--- color_id int primary key auto_increment,
--- name varchar(50) not null unique,
--- hex_value varchar(8),
--- created_at timestamp default current_timestamp
--- );
+create table color(
+color_id int primary key auto_increment,
+name varchar(50) not null unique,
+hex_value varchar(8),
+created_at timestamp default current_timestamp
+);
 
--- create table product_category(
--- productCategoryId int primary key auto_increment,
--- name varchar(50) not null unique,
--- description text,
--- created_at timestamp default current_timestamp
--- );
+create table product_category(
+productCategoryId int primary key auto_increment,
+name varchar(50) not null unique,
+description text,
+created_at timestamp default current_timestamp
+);
 
 
 
@@ -53,13 +53,13 @@ updated_at timestamp default current_timestamp,
 foreign key (product_id) references product(product_id)
 );
 
--- create table brand(
--- brand_id int primary key auto_increment,
--- name varchar(50),
--- description text, 
--- log_url text,
--- created_at timestamp default current_timestamp
--- );
+create table brand(
+brand_id int primary key auto_increment,
+name varchar(50),
+description text, 
+log_url text,
+created_at timestamp default current_timestamp
+);
 
 create table product_variation(
 variation_id int primary key auto_increment,
@@ -73,21 +73,21 @@ foreign key (color_id) references color(color_id),
 foreign key (option_id) references size_option(option_id)
 );
 
--- create table size_category(
--- sizeCategoryId int primary key auto_increment,
--- name varchar(50),
--- description text,
--- created_at timestamp default current_timestamp
--- );
+create table size_category(
+sizeCategoryId int primary key auto_increment,
+name varchar(50),
+description text,
+created_at timestamp default current_timestamp
+);
 
--- create table size_option(
--- option_id int primary key auto_increment,
--- sizeCategoryId int,
--- size_value varchar(10),
--- created_at timestamp default current_timestamp,
+create table size_option(
+option_id int primary key auto_increment,
+sizeCategoryId int,
+size_value varchar(10),
+created_at timestamp default current_timestamp,
 
--- foreign key (sizeCategoryId) references size_category(sizeCategoryId)
--- );
+foreign key (sizeCategoryId) references size_category(sizeCategoryId)
+);
 
 create table product_attribute(
 attribute_id int primary key auto_increment,
@@ -99,21 +99,21 @@ created_at timestamp default current_timestamp,
 foreign key (product_id) references product(product_id)
 );
 
--- create table attribute_category(
--- attributeCategoryId int primary key auto_increment,
--- name varchar(50),
--- description text,
--- created_at timestamp default current_timestamp
--- );
+create table attribute_category(
+attributeCategoryId int primary key auto_increment,
+name varchar(50),
+description text,
+created_at timestamp default current_timestamp
+);
 
--- create table attribute_type(
--- attributeTypeId int primary key auto_increment,
--- attributeCategoryId int,
--- name varchar(50),
--- description text,
--- created_at timestamp default current_timestamp,
+create table attribute_type(
+attributeTypeId int primary key auto_increment,
+attributeCategoryId int,
+name varchar(50),
+description text,
+created_at timestamp default current_timestamp,
 
--- foreign key(attributeCategoryId) references attribute_category(attributeCategoryId) 
+foreign key(attributeCategoryId) references attribute_category(attributeCategoryId) 
 
--- );
+);
 
